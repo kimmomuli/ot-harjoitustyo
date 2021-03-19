@@ -1,0 +1,109 @@
+14 directories, 5 files
+
+
+commit 73d3251468a09ef9836a095278834c3063097415
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 15:27:24 2021 +0200
+
+    file1 poistettu ja file2 -> file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit cc028ae917d0ee2b7350ed78e74ae0db94c88d4e
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 15:23:04 2021 +0200
+
+    new file[1, 2, 3]
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 56c3d69f4df895463b57422a8f67759e2ba637d3
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 14:44:36 2021 +0200
+
+    muutoksia eka.txt ja kolmas.txt
+
+ eka.txt    | 11 +----------
+ kolmas.txt |  6 +++++-
+ 2 files changed, 6 insertions(+), 11 deletions(-)
+
+commit aa94454d32e48d1266c8373fcb75832b4f4b3bfe
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 14:40:34 2021 +0200
+
+    tiedosto.txt -> eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3cbd0f025bf6729d9823566ae032cbae0599e38d
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 14:38:47 2021 +0200
+
+    poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit cdd72635bec07be1637a1107b898973e12160ed1
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 14:36:11 2021 +0200
+
+    poistin summassa rivejä
+
+ tiedosto.txt | 48 +-----------------------------------------------
+ 1 file changed, 1 insertion(+), 47 deletions(-)
+
+commit d45185a21dda677a507a29964e9836987da28315
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 14:33:29 2021 +0200
+
+    muokkasin tiedosto.txt wikipedia Linus Tovalds
+
+ tiedosto.txt | 1283 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 1281 insertions(+), 2 deletions(-)
+
+commit 31d2330ec1a8455afc654f90222501d2e9672454
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 14:22:49 2021 +0200
+
+    toisen ja kolmannen muokkaus ja uuden hakemiston lisäys, jossa on tiedosto
+
+ kolmas.txt       | 1 +
+ stuff/neljas.txt | 1 +
+ toinen.txt       | 1 +
+ 3 files changed, 3 insertions(+)
+
+commit e06917c2df904ddd4097660f8147a246fa2bdf86
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 14:19:24 2021 +0200
+
+    tiedoston luonti
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b60d3a72a2a2cc19d5fe422e786e77b4d5f5de0a
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 14:13:03 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 2 ++
+ toinen.txt   | 0
+ 2 files changed, 2 insertions(+)
+
+commit 3eab0e1ebcf3caac159652652af8b85ce52d1eaf
+Author: Kimmo Muli <kimmo.muli@hotmail.com>
+Date:   Fri Mar 19 14:06:14 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
