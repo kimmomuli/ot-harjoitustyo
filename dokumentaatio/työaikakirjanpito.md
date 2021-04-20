@@ -2,4 +2,5 @@
 
 Päivä | Tehdyt tunnit | Mitä tein
 ----- | ----- | ------------------------------
-1 | 1 | Testi
+19.4 | 3 | Projektin aloitus
+20.4 | 5 | Tetrominojen lisääminen
