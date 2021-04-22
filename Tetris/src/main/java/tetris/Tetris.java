@@ -1,11 +1,11 @@
 package tetris;
 
-import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -14,10 +14,12 @@ import javafx.stage.Stage;
 
 public class Tetris extends Application {
     
+    public static Tetromino tetromino;
+    
     @Override
     public void start(Stage primaryStage) {
         Pane screen = new Pane();
-        screen.setPrefSize(500, 700);
+        screen.setPrefSize(500, 650);
         
         Text points = new Text(30, 30, "Points: ");
         points.setFill(Color.RED);
@@ -27,34 +29,45 @@ public class Tetris extends Application {
         printGrid(screen);
         
         int[][] grid = new int[10][20];
-        for (int[] list: grid) Arrays.fill(list, 0);
-        
         
         Scene scene = new Scene(screen);
         primaryStage.setTitle("Tetris");
         primaryStage.setScene(scene);
         primaryStage.show();
         
-        boolean run = true;
-        Tetromino tetromino = TetrominoFactory.createRandomTetromino();
+        tetromino = TetrominoFactory.createRandomTetromino();
         screen.getChildren().addAll(tetromino.piece1, tetromino.piece2, tetromino.piece3, tetromino.piece4);
-        
+         
         Timer timer = new Timer();
         TimerTask timertask = new TimerTask() {
             public void run() {
                 Platform.runLater(() -> {
-                    if (run) moveDown(tetromino);
+                    if (gameOver(grid)) {
+                        if (!TetrisMoves.moveDown(tetromino, grid)) {
+                            tetromino = TetrominoFactory.createRandomTetromino();
+                            screen.getChildren().addAll(tetromino.piece1, tetromino.piece2, tetromino.piece3, tetromino.piece4);
+                        }
+                        
+                        scene.setOnKeyPressed(event ->{
+                            if (event.getCode() == KeyCode.DOWN) ; 
+                            if (event.getCode() == KeyCode.LEFT) TetrisMoves.moveLeft(tetromino, grid);
+                            if (event.getCode() == KeyCode.RIGHT) TetrisMoves.moveRight(tetromino, grid);
+                            if (event.getCode() == KeyCode.UP) TetrisMoves.rotate(tetromino);
+                        });
+                    }
                 });
             }
         };
         timer.schedule(timertask, 0, 200);
     }
     
-    public void moveDown(Tetromino tetromino){
-        tetromino.piece1.setY(tetromino.piece1.getY() + 30);
-        tetromino.piece2.setY(tetromino.piece2.getY() + 30);
-        tetromino.piece3.setY(tetromino.piece3.getY() + 30);
-        tetromino.piece4.setY(tetromino.piece4.getY() + 30);
+    public boolean gameOver(int[][] grid ){
+        for (int i = 0; i < 10; i++) {
+            if (grid[i][0] == 1) {
+                return false;
+            }
+        }
+        return true;
     }
     
     public void printGrid(Pane screen){
