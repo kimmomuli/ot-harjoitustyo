@@ -1,5 +1,6 @@
 
 import javafx.scene.shape.Rectangle;
+import tetris.logics.Tetromino;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,10 +17,6 @@ public class TetrisTest {
     
     @Before
     public void setUp() {
-        tetromino = new Tetromino(new Rectangle(1, 1),
-                        new Rectangle(1, 1),
-                        new Rectangle(1, 1),
-                        new Rectangle(1, 1));
         tetrominoFactory = new TetrominoFactory();
     }
     
