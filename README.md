@@ -9,7 +9,16 @@ Sovelluksen tarkotus on kerätä mahdollisimman paljon pisteitä. Pelissä tippu
 - [ ] Pisteet lisäntyy täytetyistä riveistä
 - [x] Mikäli palanen on ylärivillä peli loppuu
 
-Ohjelman voi suorittaa komennolla `mvn compile exec:java -Dexec.mainClass=tetris.Main`
+Ohjelman voi suorittaa komennoilla 
+```
+git clone https://github.com/kimmomuli/ot-harjoitustyo.git
+```
+```
+cd Tetris
+```
+```
+mvn compile exec:java -Dexec.mainClass=tetris.Main
+```
 
  - [työaikakirjanpito](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/ty%C3%B6aikakirjanpito.md)
  - [arkkitehtuuri](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
