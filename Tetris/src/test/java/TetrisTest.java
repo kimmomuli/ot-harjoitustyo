@@ -6,8 +6,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import tetris.Tetromino;
-import tetris.TetrominoFactory;
+import tetris.logics.Tetromino;
+import tetris.logics.TetrominoFactory;
 
 public class TetrisTest {
     

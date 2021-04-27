@@ -1,5 +1,6 @@
-package tetris;
+package tetris.logics;
 
+import tetris.logics.Tetromino;
 import java.util.Random;
 import javafx.scene.shape.Rectangle;
 

@@ -1,5 +1,8 @@
-package tetris;
+package tetris.ui;
 
+import tetris.logics.TetrisMoves;
+import tetris.logics.Tetromino;
+import tetris.logics.TetrominoFactory;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.application.Application;
@@ -37,12 +40,12 @@ public class Tetris extends Application {
         
         tetromino = TetrominoFactory.createRandomTetromino();
         screen.getChildren().addAll(tetromino.piece1, tetromino.piece2, tetromino.piece3, tetromino.piece4);
-         
+        
         Timer timer = new Timer();
         TimerTask timertask = new TimerTask() {
             public void run() {
                 Platform.runLater(() -> {
-                    if (gameOver(grid)) {
+                    if (TetrisMoves.gameOver(grid)) {
                         if (!TetrisMoves.moveDown(tetromino, grid)) {
                             tetromino = TetrominoFactory.createRandomTetromino();
                             screen.getChildren().addAll(tetromino.piece1, tetromino.piece2, tetromino.piece3, tetromino.piece4);
@@ -59,15 +62,6 @@ public class Tetris extends Application {
             }
         };
         timer.schedule(timertask, 0, 200);
-    }
-    
-    public boolean gameOver(int[][] grid ){
-        for (int i = 0; i < 10; i++) {
-            if (grid[i][0] == 1) {
-                return false;
-            }
-        }
-        return true;
     }
     
     public void printGrid(Pane screen){

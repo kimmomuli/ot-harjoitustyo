@@ -1,14 +1,14 @@
-package tetris;
+package tetris.logics;
 
 import javafx.scene.shape.Rectangle;
 
 public class Tetromino {
     
-    Rectangle piece1;
-    Rectangle piece2;
-    Rectangle piece3;
-    Rectangle piece4;
-    String name;
+    public Rectangle piece1;
+    public Rectangle piece2;
+    public Rectangle piece3;
+    public Rectangle piece4;
+    public String name;
 
     public Tetromino(Rectangle piece1, Rectangle piece2, Rectangle piece3, Rectangle piece4, String name) {
         this.piece1 = piece1;

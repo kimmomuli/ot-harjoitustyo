@@ -1,4 +1,4 @@
-package tetris;
+package tetris.logics;
 
 import javafx.scene.shape.Rectangle;
 
@@ -105,5 +105,14 @@ public class TetrisMoves {
             case "T":
                 
         }
+    }
+    
+    public static boolean gameOver(int[][] grid){
+        for (int i = 0; i < 10; i++) {
+            if (grid[i][0] == 1) {
+                return false;
+            }
+        }
+        return true;
     }
 }
