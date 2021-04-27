@@ -38,7 +38,7 @@ public class Tetris extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         
-        tetromino = TetrominoFactory.createRandomTetromino();
+        tetromino = TetrominoFactory.createRandomTetromino(TetrominoFactory.randomNumber());
         screen.getChildren().addAll(tetromino.piece1, tetromino.piece2, tetromino.piece3, tetromino.piece4);
         
         Timer timer = new Timer();
@@ -47,7 +47,7 @@ public class Tetris extends Application {
                 Platform.runLater(() -> {
                     if (TetrisMoves.gameOver(grid)) {
                         if (!TetrisMoves.moveDown(tetromino, grid)) {
-                            tetromino = TetrominoFactory.createRandomTetromino();
+                            tetromino = TetrominoFactory.createRandomTetromino(TetrominoFactory.randomNumber());
                             screen.getChildren().addAll(tetromino.piece1, tetromino.piece2, tetromino.piece3, tetromino.piece4);
                         }
                         

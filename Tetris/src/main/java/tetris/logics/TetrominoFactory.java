@@ -1,15 +1,10 @@
 package tetris.logics;
 
-import tetris.logics.Tetromino;
 import java.util.Random;
 import javafx.scene.shape.Rectangle;
 
 public class TetrominoFactory {
-    
-    public static Tetromino createRandomTetromino() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(7);
-        
+    public static Tetromino createRandomTetromino(int randomNumber) {
         switch(randomNumber) {
             case 0:
                 //piece O
@@ -60,5 +55,10 @@ public class TetrominoFactory {
                         new Rectangle(280, 50, 30, 30),
                         new Rectangle(250, 80, 30, 30), "T");
         }   
+    }
+    
+    public static int randomNumber(){
+        Random random = new Random();
+        return random.nextInt(7);
     }
 }
