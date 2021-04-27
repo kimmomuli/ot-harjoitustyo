@@ -4,6 +4,7 @@ Sovelluksen tarkotus on kerätä mahdollisimman paljon pisteitä. Pelissä tippu
 - [ ] Käyttäjä voi aloittaa ja lopettaa pelaamisen
 - [x] Pelissä tippuu vuorotellen ja sattumanvaraisesti yksi seitsemästä palasta
 - [x] Palanen jää siihen kohtaa mihin se ensimmäisenä koskettaa
+- [x] Paloja voi siirrellä vasemmalla ja oikealle
 - [ ] Paloja voi käännellä nuolinäppäimillä
 - [ ] Pisteet lisäntyy täytetyistä riveistä
 - [x] Mikäli palanen on ylärivillä peli loppuu
