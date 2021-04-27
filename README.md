@@ -11,4 +11,5 @@ Sovelluksen tarkotus on kerätä mahdollisimman paljon pisteitä. Pelissä tippu
 
 Ohjelman voi suorittaa komennolla `mvn compile exec:java -Dexec.mainClass=tetris.Main`
 
-[työaikakirjanpito](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/ty%C3%B6aikakirjanpito.md)
+ - [työaikakirjanpito](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/ty%C3%B6aikakirjanpito.md)
+ - [arkkitehtuuri](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
