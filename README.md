@@ -4,10 +4,12 @@ Sovelluksen tarkotus on kerätä mahdollisimman paljon pisteitä. Pelissä tippu
 - [ ] Käyttäjä voi aloittaa ja lopettaa pelaamisen
 - [x] Pelissä tippuu vuorotellen ja sattumanvaraisesti yksi seitsemästä palasta
 - [x] Palanen jää siihen kohtaa mihin se ensimmäisenä koskettaa
-- [ ] Paloja voi käännellä nuolinäppäimillä
+- [x] Paloja voi siirrellä vasemmalla ja oikealle
+- [ ] Paloja voi käännellä
 - [ ] Pisteet lisäntyy täytetyistä riveistä
 - [x] Mikäli palanen on ylärivillä peli loppuu
 
 Ohjelman voi suorittaa komennolla `mvn compile exec:java -Dexec.mainClass=tetris.Main`
 
-[työaikakirjanpito](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/ty%C3%B6aikakirjanpito.md)
+ - [työaikakirjanpito](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/ty%C3%B6aikakirjanpito.md)
+ - [arkkitehtuuri](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
