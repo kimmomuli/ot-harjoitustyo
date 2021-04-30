@@ -6,4 +6,5 @@ Päivä | Tehdyt tunnit | Mitä tein
 20.4 | 5 | Tetrominojen lisääminen
 22.4 | 2 | Tetrominot tippuu yksitellen
 22.4 | 2 | Tetrominoja voi liikuttaa sivuttain
-summa | 12
+20.4 | 5 | Pyörimisen lisäys
+summa | 17
