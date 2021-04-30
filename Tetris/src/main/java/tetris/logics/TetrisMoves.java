@@ -41,7 +41,7 @@ public class TetrisMoves {
     }
     
     public static int xCoordinate(Rectangle piece){
-        return (int) ((piece.getX() - 100) / 30);
+        return (int) ((piece.getX() - 100) / 30) ;
     }
     
     public static int yCoordinate(Rectangle piece){
@@ -88,31 +88,297 @@ public class TetrisMoves {
                 grid[xCoordinate(t.piece4) + 1][yCoordinate(t.piece4)] == 0);
     }
     
-    public static void rotate(Tetromino t){
-        switch(t.name){
-            case "O":
-                break;
-            case "I":
-                
-            case "S":
-                
-            case "Z":
-                
-            case "L":
-                
-            case "J":
-                
-            case "T":
-                
+    public static void rotate(Tetromino t, int[][] grid){
+        if (t.name.equals("I")) rotatePieceI(t, grid);
+        if (t.name.equals("S")) rotatePieceS(t, grid);
+        if (t.name.equals("Z")) rotatePieceZ(t, grid);
+        if (t.name.equals("L")) rotatePieceL(t, grid);
+        if (t.name.equals("J")) rotatePieceJ(t, grid);
+        if (t.name.equals("T")) rotatePieceT(t, grid);
+    }
+    
+    public static void rotatePieceI(Tetromino t, int[][] grid){
+        if (t.position == 1 || t.position == 3) {
+            if (canRotateITo2(t, grid)) {
+                t.piece1.setX(t.piece1.getX() + 30);
+                t.piece2.setY(t.piece2.getY() + 30);
+                t.piece3.setX(t.piece3.getX() - 30);
+                t.piece3.setY(t.piece3.getY() + 60);
+                t.piece4.setX(t.piece4.getX() - 60);
+                t.piece4.setY(t.piece4.getY() + 90);
+                t.changePostion();
+            }
+        } else {
+            if (canRotateITo3(t, grid)) {
+                t.piece1.setX(t.piece1.getX() - 30);
+                t.piece2.setY(t.piece2.getY() - 30);
+                t.piece3.setX(t.piece3.getX() + 30);
+                t.piece3.setY(t.piece3.getY() - 60);
+                t.piece4.setX(t.piece4.getX() + 60);
+                t.piece4.setY(t.piece4.getY() - 90);
+                t.changePostion();
+            }
         }
     }
     
-    public static boolean gameOver(int[][] grid){
-        for (int i = 0; i < 10; i++) {
-            if (grid[i][0] == 1) {
-                return false;
+    public static boolean canRotateITo2(Tetromino t, int[][] grid){
+        return  (t.piece2.getY() < 560 &&
+                grid[xCoordinate(t.piece2)][yCoordinate(t.piece2) + 1] == 0 && 
+                grid[xCoordinate(t.piece3) - 1][yCoordinate(t.piece3) + 2] == 0 &&
+                grid[xCoordinate(t.piece4) - 2][yCoordinate(t.piece4) + 3] == 0);
+    }
+    
+    public static boolean canRotateITo3(Tetromino t, int[][] grid){
+        int xHelp = xCoordinate(t.piece1);
+        int yHelp = yCoordinate(t.piece1);
+        return (t.piece1.getX() > 100 && 
+                t.piece1.getX() < 340 &&
+                grid[xHelp - 1][yHelp] == 0 &&
+                grid[xHelp + 1][yHelp] == 0 &&
+                grid[xHelp + 2][yHelp] == 0);
+    }
+    
+    public static void rotatePieceS(Tetromino t, int[][] grid){
+        if (t.position == 1 || t.position == 3) {
+            if (canRotateSto2(t, grid)) {
+                t.piece3.setY(t.piece3.getY() - 60);
+                t.piece4.setX(t.piece4.getX() + 60);
+                t.changePostion();
+            }
+        } else {
+            if (canRotateSto3(t, grid)) {
+                t.piece3.setY(t.piece3.getY() + 60);
+                t.piece4.setX(t.piece4.getX() - 60);
+                t.changePostion();
             }
         }
-        return true;
+    }
+    
+    public static boolean canRotateSto2(Tetromino t, int[][] grid) {
+        return (t.piece1.getY() > 50 &&
+                grid[xCoordinate(t.piece2)][yCoordinate(t.piece2)- 1] == 0 &&
+                grid[xCoordinate(t.piece1)][yCoordinate(t.piece1)+ 1] == 0);
+    }
+    
+    public static boolean canRotateSto3(Tetromino t, int[][] grid) {
+        return (t.piece2.getX() > 100 && 
+                grid[xCoordinate(t.piece2)][yCoordinate(t.piece2) + 1] == 0 && 
+                grid[xCoordinate(t.piece4) - 2][yCoordinate(t.piece4)] == 0);
+    }
+    
+    public static void rotatePieceZ(Tetromino t, int[][] grid){
+        if (t.position == 1 || t.position == 3) {
+            if (canRotateZto2(t, grid)) {
+                t.piece1.setX(t.piece1.getX() + 60);
+                t.piece4.setY(t.piece4.getY() - 60);
+                t.changePostion();
+            }
+        } else {
+            if (canRotateZto3(t, grid)) {
+                t.piece1.setX(t.piece1.getX() - 60);
+                t.piece4.setY(t.piece4.getY() + 60);
+                t.changePostion();
+            }
+        }
+    }
+    
+    public static boolean canRotateZto2(Tetromino t, int[][] grid) {
+        return (t.piece1.getY() > 50 &&
+                grid[xCoordinate(t.piece2) + 1][yCoordinate(t.piece2)] == 0 &&
+                grid[xCoordinate(t.piece4)][yCoordinate(t.piece4) - 2] == 0);
+    }
+    
+    public static boolean canRotateZto3(Tetromino t, int[][] grid) {
+        return (t.piece2.getX() > 100 &&
+                grid[xCoordinate(t.piece2) - 1][yCoordinate(t.piece2)] == 0 &&
+                grid[xCoordinate(t.piece4)][yCoordinate(t.piece4) + 2] == 0);
+    }
+    
+    public static void rotatePieceL(Tetromino t, int[][] grid){
+        if (t.position == 1){
+            if (canRotateLto2(t, grid)){
+                t.piece1.setY(t.piece1.getY() - 60);
+                t.piece2.setY(t.piece2.getY() - 30);
+                t.piece2.setX(t.piece2.getX() + 30);
+                t.piece4.setY(t.piece4.getY() + 30);
+                t.piece4.setX(t.piece4.getX() - 30);
+                t.changePostion();
+            }
+        } else if (t.position == 2) {
+            if (canRotateLto3(t, grid)){
+                t.piece1.setX(t.piece1.getX() + 60);
+                t.piece2.setX(t.piece2.getX() + 30);
+                t.piece2.setY(t.piece2.getY() + 30);
+                t.piece4.setY(t.piece4.getY() - 30);
+                t.piece4.setX(t.piece4.getX() - 30);
+                t.changePostion();
+            }
+        } else if (t.position == 3) {
+            if (canRotateLto4(t, grid)){
+                t.piece1.setY(t.piece1.getY() + 60);
+                t.piece2.setX(t.piece2.getX() - 30);
+                t.piece2.setY(t.piece2.getY() + 30);
+                t.piece4.setY(t.piece4.getY() - 30);
+                t.piece4.setX(t.piece4.getX() + 30);
+                t.changePostion();
+            }
+        } else if (t.position == 4) {
+            if (canRotateLto1(t, grid)){
+                t.piece1.setX(t.piece1.getX() - 60);
+                t.piece2.setX(t.piece2.getX() - 30);
+                t.piece2.setY(t.piece2.getY() - 30);
+                t.piece4.setY(t.piece4.getY() + 30);
+                t.piece4.setX(t.piece4.getX() + 30);
+                t.changePostion();
+            }
+        } 
+    }
+    
+    public static boolean canRotateLto2(Tetromino t, int[][] grid){
+        return (t.piece2.getY() > 50 &&
+                grid[xCoordinate(t.piece1)][yCoordinate(t.piece1) - 2] == 0 &&
+                grid[xCoordinate(t.piece2) + 1][yCoordinate(t.piece2) - 1] == 0 &&
+                grid[xCoordinate(t.piece4) - 1][yCoordinate(t.piece4) + 1] == 0);
+    }
+    
+    public static boolean canRotateLto3(Tetromino t, int[][] grid){
+        return (t.piece2.getX() < 370 &&
+                grid[xCoordinate(t.piece1) + 2][yCoordinate(t.piece1)] == 0 &&
+                grid[xCoordinate(t.piece2) + 1][yCoordinate(t.piece2) + 1] == 0 &&
+                grid[xCoordinate(t.piece4) - 1][yCoordinate(t.piece4) - 1] == 0);
+    }
+    
+    public static boolean canRotateLto4(Tetromino t, int[][] grid){
+        return (t.piece2.getY() < 620 && 
+                grid[xCoordinate(t.piece1)][yCoordinate(t.piece1) + 2] == 0 &&
+                grid[xCoordinate(t.piece2) - 1][yCoordinate(t.piece2) + 1] == 0 &&
+                grid[xCoordinate(t.piece4) + 1][yCoordinate(t.piece4) - 1] == 0);
+    }
+    
+    public static boolean canRotateLto1(Tetromino t, int[][] grid){
+        return (t.piece2.getX() > 100 &&
+                grid[xCoordinate(t.piece1) - 2][yCoordinate(t.piece1)] == 0 &&
+                grid[xCoordinate(t.piece2) - 1][yCoordinate(t.piece2) - 1] == 0 &&
+                grid[xCoordinate(t.piece4) + 1][yCoordinate(t.piece4) + 1] == 0);
+    }
+    
+    public static void rotatePieceJ(Tetromino t, int[][] grid){
+        if (t.position == 1){
+            if(canRotateJto2(t,grid)) {
+                t.piece1.setY(t.piece1.getY() - 30);
+                t.piece1.setX(t.piece1.getX() + 30);
+                t.piece3.setY(t.piece3.getY() + 30);
+                t.piece3.setX(t.piece3.getX() - 30);
+                t.piece4.setX(t.piece4.getX() - 60);
+                t.changePostion();
+            }
+        } else if (t.position == 2) {
+            if(canRotateJto3(t,grid)) {
+                t.piece1.setY(t.piece1.getY() + 30);
+                t.piece1.setX(t.piece1.getX() + 30);
+                t.piece3.setY(t.piece3.getY() - 30);
+                t.piece3.setX(t.piece3.getX() - 30);
+                t.piece4.setY(t.piece4.getY() - 60);
+                t.changePostion();
+            }
+        } else if (t.position == 3) {
+            if(canRotateJto4(t,grid)) {
+                t.piece1.setY(t.piece1.getY() + 30);
+                t.piece1.setX(t.piece1.getX() - 30);
+                t.piece3.setY(t.piece3.getY() - 30);
+                t.piece3.setX(t.piece3.getX() + 30);
+                t.piece4.setX(t.piece4.getX() + 60);
+                t.changePostion();
+            }
+        } else if (t.position == 4) {
+            if(canRotateJto1(t,grid)) {
+                t.piece1.setY(t.piece1.getY() - 30);
+                t.piece1.setX(t.piece1.getX() - 30);
+                t.piece3.setY(t.piece3.getY() + 30);
+                t.piece3.setX(t.piece3.getX() + 30);
+                t.piece4.setY(t.piece4.getY() + 60);
+                t.changePostion();
+            }
+        } 
+    }
+    
+    public static boolean canRotateJto2(Tetromino t, int[][] grid) {
+        return (t.piece2.getY() > 50 &&
+                grid[xCoordinate(t.piece1) + 1][yCoordinate(t.piece1) - 1] == 0 &&
+                grid[xCoordinate(t.piece3) - 1][yCoordinate(t.piece3) + 1] == 0 &&
+                grid[xCoordinate(t.piece4) - 2][yCoordinate(t.piece4)] == 0);
+    }
+    
+    public static boolean canRotateJto3(Tetromino t, int[][] grid) {
+        return (t.piece2.getX() < 370 &&
+                grid[xCoordinate(t.piece1) + 1][yCoordinate(t.piece1) + 1] == 0 &&
+                grid[xCoordinate(t.piece3) - 1][yCoordinate(t.piece3) - 1] == 0 &&
+                grid[xCoordinate(t.piece4)][yCoordinate(t.piece4) - 2] == 0);
+    }
+    
+    public static boolean canRotateJto4(Tetromino t, int[][] grid) {
+        return (t.piece2.getY() < 620 &&
+                grid[xCoordinate(t.piece1) - 1][yCoordinate(t.piece1) + 1] == 0 &&
+                grid[xCoordinate(t.piece3) + 1][yCoordinate(t.piece3) - 1] == 0 &&
+                grid[xCoordinate(t.piece4) + 2][yCoordinate(t.piece4)] == 0);
+    }
+    
+    public static boolean canRotateJto1(Tetromino t, int[][] grid) {
+        return (t.piece2.getX() > 100 &&
+                grid[xCoordinate(t.piece1) - 1][yCoordinate(t.piece1) - 1] == 0 &&
+                grid[xCoordinate(t.piece3) + 1][yCoordinate(t.piece3) + 1] == 0 &&
+                grid[xCoordinate(t.piece4)][yCoordinate(t.piece4) + 2] == 0);
+    }
+    
+    public static void rotatePieceT(Tetromino t, int[][] grid){
+        if (t.position == 1){
+            if (canRotateTo2(t, grid)) {
+                t.piece3.setY(t.piece3.getY() - 30);
+                t.piece3.setX(t.piece3.getX() - 30);
+                t.changePostion();
+            }
+        } else if (t.position == 2) {
+            if (canRotateTo3(t, grid)){
+                t.piece4.setY(t.piece4.getY() - 30);
+                t.piece4.setX(t.piece4.getX() + 30);
+                t.changePostion();
+            }
+        } else if (t.position == 3) {
+            if (canRotateTo4(t, grid)){
+                t.piece1.setY(t.piece1.getY() + 30);
+                t.piece1.setX(t.piece1.getX() + 30);
+                t.changePostion();
+            }
+        } else if (t.position == 4) {
+            if (canRotateTo1(t, grid)){
+                t.piece1.setY(t.piece1.getY() - 30);
+                t.piece1.setX(t.piece1.getX() - 30);
+                t.piece3.setY(t.piece3.getY() + 30);
+                t.piece3.setX(t.piece3.getX() + 30);
+                t.piece4.setY(t.piece4.getY() + 30);
+                t.piece4.setX(t.piece4.getX() - 30);
+                t.changePostion();
+            }
+        } 
+    }
+
+    public static boolean canRotateTo2(Tetromino t, int[][] grid) {
+        return (t.piece2.getY() > 50 &&
+                grid[xCoordinate(t.piece2)][yCoordinate(t.piece2) - 1] == 0);
+    }
+    
+    public static boolean canRotateTo3(Tetromino t, int[][] grid) {
+        return (t.piece2.getX() < 370 &&
+                grid[xCoordinate(t.piece2) + 1][yCoordinate(t.piece2)] == 0);
+    }
+    
+    public static boolean canRotateTo4(Tetromino t, int[][] grid) {
+        return (t.piece2.getY() < 620 &&
+                grid[xCoordinate(t.piece2)][yCoordinate(t.piece2) + 1] == 0);
+    }
+    
+    public static boolean canRotateTo1(Tetromino t, int[][] grid) {
+        return (t.piece2.getX() > 100 &&
+                grid[xCoordinate(t.piece2) - 1][yCoordinate(t.piece2)] == 0);
     }
 }

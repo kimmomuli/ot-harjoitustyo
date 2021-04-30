@@ -32,10 +32,10 @@ public class TetrominoFactory {
                         new Rectangle(280, 80, 30, 30), "Z");
             case 4:
                 //piece L
-                return new Tetromino(new Rectangle(220, 50, 30, 30),
+                return new Tetromino(new Rectangle(220, 80, 30, 30),
+                        new Rectangle(220, 50, 30, 30),
                         new Rectangle(250, 50, 30, 30),
-                        new Rectangle(280, 50, 30, 30),
-                        new Rectangle(220, 80, 30, 30), "L");
+                        new Rectangle(280, 50, 30, 30), "L");
             case 5:
                 //piece J
                 return new Tetromino(new Rectangle(220, 50, 30, 30),

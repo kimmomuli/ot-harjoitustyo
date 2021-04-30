@@ -5,6 +5,7 @@ import javafx.scene.shape.Rectangle;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
+import tetris.logics.TetrisCheck;
 import tetris.logics.TetrisMoves;
 import tetris.logics.Tetromino;
 import tetris.logics.TetrominoFactory;
@@ -115,14 +116,14 @@ public class TetrisTest {
     @Test
     public void testTetrisMovesgameOverTrue(){
         int[][] test = new int[10][10];
-        assertTrue(TetrisMoves.gameOver(test) == true);
+        assertTrue(TetrisCheck.gameOver(test) == true);
     }
     
     @Test
     public void testTetrisMovesgameOverFalse(){
         int[][] test = new int[10][10];
         test[3][0] = 1;
-        assertTrue(TetrisMoves.gameOver(test) == false);
+        assertTrue(TetrisCheck.gameOver(test) == false);
     }
     
     @Test

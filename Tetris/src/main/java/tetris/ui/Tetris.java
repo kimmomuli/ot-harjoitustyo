@@ -1,5 +1,6 @@
 package tetris.ui;
 
+import tetris.logics.TetrisCheck;
 import tetris.logics.TetrisMoves;
 import tetris.logics.Tetromino;
 import tetris.logics.TetrominoFactory;
@@ -45,7 +46,7 @@ public class Tetris extends Application {
         TimerTask timertask = new TimerTask() {
             public void run() {
                 Platform.runLater(() -> {
-                    if (TetrisMoves.gameOver(grid)) {
+                    if (TetrisCheck.gameOver(grid)) {
                         if (!TetrisMoves.moveDown(tetromino, grid)) {
                             tetromino = TetrominoFactory.createRandomTetromino(TetrominoFactory.randomNumber());
                             screen.getChildren().addAll(tetromino.piece1, tetromino.piece2, tetromino.piece3, tetromino.piece4);
@@ -55,13 +56,13 @@ public class Tetris extends Application {
                             if (event.getCode() == KeyCode.DOWN) ; 
                             if (event.getCode() == KeyCode.LEFT) TetrisMoves.moveLeft(tetromino, grid);
                             if (event.getCode() == KeyCode.RIGHT) TetrisMoves.moveRight(tetromino, grid);
-                            if (event.getCode() == KeyCode.UP) TetrisMoves.rotate(tetromino);
+                            if (event.getCode() == KeyCode.UP) TetrisMoves.rotate(tetromino, grid);
                         });
                     }
                 });
             }
         };
-        timer.schedule(timertask, 0, 200);
+        timer.schedule(timertask, 0, 300);
     }
     
     public void printGrid(Pane screen){
