@@ -7,4 +7,6 @@ Päivä | Tehdyt tunnit | Mitä tein
 22.4 | 2 | Tetrominot tippuu yksitellen
 22.4 | 2 | Tetrominoja voi liikuttaa sivuttain
 20.4 | 5 | Pyörimisen lisäys
-summa | 17
+3.5 | 8 | Rivienpoisto + käyttöliittymä
+3.5 | 1 | Koodin siistimistä 
+summa | 26
