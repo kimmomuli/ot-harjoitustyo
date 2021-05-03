@@ -1,6 +1,6 @@
 package tetris.logics;
 
-import tetris.ui.Tetris;
+import tetris.ui.GameGUI;
 import java.util.ArrayList;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
@@ -24,10 +24,10 @@ public class TetrisCheck {
                 counter++;
                 removeRow(grid, screen, row);
             } else {
-                if (counter == 1) Tetris.pointsNumber += 100;
-                if (counter == 2) Tetris.pointsNumber += 200;
-                if (counter == 3) Tetris.pointsNumber += 400;
-                if (counter == 4) Tetris.pointsNumber += 800;
+                if (counter == 1) GameGUI.pointsNumber += 100;
+                if (counter == 2) GameGUI.pointsNumber += 200;
+                if (counter == 3) GameGUI.pointsNumber += 400;
+                if (counter == 4) GameGUI.pointsNumber += 800;
                 break;
             }
         }
