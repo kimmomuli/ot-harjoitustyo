@@ -9,4 +9,4 @@ Päivä | Tehdyt tunnit | Mitä tein
 20.4 | 5 | Pyörimisen lisäys
 3.5 | 8 | Rivienpoisto + käyttöliittymä
 3.5 | 1 | Koodin siistimistä 
-summa | 25
+summa | 26
