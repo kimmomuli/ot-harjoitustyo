@@ -47,12 +47,22 @@ public class GameGUI {
                             screen.getChildren().addAll(tetromino.piece1, tetromino.piece2, tetromino.piece3, tetromino.piece4);
                             printGrid(screen);
                         }
-                        scene.setOnKeyPressed(event ->{
-                            if (event.getCode() == KeyCode.DOWN) TetrisMoves.moveDown(tetromino, grid, screen);
-                            if (event.getCode() == KeyCode.Q) System.exit(0); 
-                            if (event.getCode() == KeyCode.LEFT) TetrisMoves.moveLeft(tetromino, grid);
-                            if (event.getCode() == KeyCode.RIGHT) TetrisMoves.moveRight(tetromino, grid);
-                            if (event.getCode() == KeyCode.UP) TetrisMoves.rotate(tetromino, grid);
+                        scene.setOnKeyPressed(event -> {
+                            if (event.getCode() == KeyCode.DOWN) {
+                                TetrisMoves.moveDown(tetromino, grid, screen);
+                            }
+                            if (event.getCode() == KeyCode.Q) {
+                                System.exit(0);
+                            } 
+                            if (event.getCode() == KeyCode.LEFT) {
+                                TetrisMoves.moveLeft(tetromino, grid);
+                            }
+                            if (event.getCode() == KeyCode.RIGHT) {
+                                TetrisMoves.moveRight(tetromino, grid);
+                            }
+                            if (event.getCode() == KeyCode.UP) {
+                                TetrisMoves.rotate(tetromino, grid);
+                            }
                         });
                     }
                 });
@@ -61,16 +71,16 @@ public class GameGUI {
         timer.schedule(timertask, 0, 300);
     }
     
-    public static void printGrid(Pane screen){
+    public static void printGrid(Pane screen) {
         int x = 100;
         for (int i = 0; i < 11; i++) {
             screen.getChildren().add(new Line(x, 50, x, 650));
-            x+=30;
+            x += 30;
         }
         int y = 50;
         for (int i = 0; i < 21; i++) {
             screen.getChildren().add(new Line(100, y, 400, y));
-            y+=30;
+            y += 30;
         }
     }
 }

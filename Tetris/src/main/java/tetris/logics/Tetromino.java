@@ -23,24 +23,34 @@ public class Tetromino {
     }
     
     public void paint(String name) {
-        if (name.equals("0"))setColor(Color.YELLOW);
-        if (name.equals("I"))setColor(Color.CYAN);
-        if (name.equals("S"))setColor(Color.LAWNGREEN);
-        if (name.equals("Z"))setColor(Color.RED);
-        if (name.equals("L"))setColor(Color.ORANGE);
-        if (name.equals("J"))setColor(Color.BLUE);
-        if (name.equals("T"))setColor(Color.HOTPINK);
+        if (name.equals("0")) { 
+            setColor(Color.YELLOW); 
+        } else if (name.equals("I")) { 
+            setColor(Color.CYAN); 
+        } else if (name.equals("S")) { 
+            setColor(Color.LAWNGREEN); 
+        } else if (name.equals("Z")) { 
+            setColor(Color.RED); 
+        } else if (name.equals("L")) { 
+            setColor(Color.ORANGE); 
+        } else if (name.equals("J")) { 
+            setColor(Color.BLUE); 
+        } else if (name.equals("T")) { 
+            setColor(Color.HOTPINK); 
+        }
     }
     
-    public void setColor(Color color){
+    public void setColor(Color color) {
         piece1.setFill(color);
         piece2.setFill(color);
         piece3.setFill(color);
         piece4.setFill(color);
     }
     
-    public void changePostion(){
+    public void changePostion() {
         position++;
-        if (position == 5) position = 1;
+        if (position == 5) {
+            position = 1;
+        }
     }
 }

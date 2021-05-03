@@ -3,7 +3,6 @@ package tetris.ui;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
@@ -14,33 +13,21 @@ public class MenuGUI {
     
     public static void startMenu(Stage primaryStage) {
         Pane screen = new Pane();
-        screen.setPrefSize(500, 650);
-        screen.setStyle("-fx-background-color: grey;");
-        
         addTetrisHeader(screen);
-        
         Button quitBtn = createQuitButton();
         screen.getChildren().add(quitBtn);
-        
-        screen.getChildren().add(new Line(0, 245, 500, 245));
-        
         Button startBtn = createStartButton();
         screen.getChildren().add(startBtn);
-        
         addGuideText(screen);
         addGuideKeys(screen);
-        
         Scene scene = new Scene(screen);
         primaryStage.setTitle("Tetris");
         primaryStage.setScene(scene);
         primaryStage.show();
-        
-        
         startBtn.setOnAction((ActionEvent event) -> {
             screen.getChildren().clear();
             GameGUI.startTetris(primaryStage, screen, scene);
         });
-        
         quitBtn.setOnAction((ActionEvent event) -> {
             System.exit(0);
         });
@@ -65,12 +52,14 @@ public class MenuGUI {
     }
     
     public static void addTetrisHeader(Pane screen) {
+        screen.setPrefSize(500, 650);
+        screen.setStyle("-fx-background-color: grey;");
         Text title = new Text(28, 120, "TETRIS");
         title.setFill(Color.BLACK);
         title.setStyle("-fx-font-size: 10em;");
         screen.getChildren().add(title);
-        
         screen.getChildren().add(new Line(0, 130, 500, 130));
+        screen.getChildren().add(new Line(0, 245, 500, 245));
     }
     
     public static void addGuideText(Pane screen) {
@@ -95,11 +84,11 @@ public class MenuGUI {
         
         Text keysText1 = new Text(180, 500, "Q = quit");
         keysText1.setStyle("-fx-font-size: 2em;");
-        Text keysText2 = new Text(150, 530,"Left = left arrow");
+        Text keysText2 = new Text(150, 530, "Left = left arrow");
         keysText2.setStyle("-fx-font-size: 2em;");
-        Text keysText3 = new Text(140, 560,"Right = right arrow");
+        Text keysText3 = new Text(140, 560, "Right = right arrow");
         keysText3.setStyle("-fx-font-size: 2em;");
-        Text keysText4 = new Text(140, 590,"Rotate = up arrow");
+        Text keysText4 = new Text(140, 590, "Rotate = up arrow");
         keysText4.setStyle("-fx-font-size: 2em;");
         screen.getChildren().addAll(guideText1, keysText1, keysText2, keysText3, keysText4);
     }

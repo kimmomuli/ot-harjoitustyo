@@ -80,10 +80,10 @@ public class TetrisTest {
     @Test
     public void testCreateRandomTetrominoL(){
         Tetromino l = TetrominoFactory.createRandomTetromino(4);
-        assertTrue(l.piece1.getX() == 220.0 && l.piece1.getY() == 50.0 &&
-                   l.piece2.getX() == 250.0 && l.piece2.getY() == 50.0 &&
-                   l.piece3.getX() == 280.0 && l.piece3.getY() == 50.0 &&
-                   l.piece4.getX() == 220.0 && l.piece4.getY() == 80.0);
+        assertTrue(l.piece1.getX() == 220.0 && l.piece1.getY() == 80.0 &&
+                   l.piece2.getX() == 220.0 && l.piece2.getY() == 50.0 &&
+                   l.piece3.getX() == 250.0 && l.piece3.getY() == 50.0 &&
+                   l.piece4.getX() == 280.0 && l.piece4.getY() == 50.0);
     }
     
     @Test
