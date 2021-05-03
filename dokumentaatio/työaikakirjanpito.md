@@ -8,4 +8,5 @@ Päivä | Tehdyt tunnit | Mitä tein
 22.4 | 2 | Tetrominoja voi liikuttaa sivuttain
 20.4 | 5 | Pyörimisen lisäys
 3.5 | 8 | Rivienpoisto + käyttöliittymä
+3.5 | 1 | Koodin siistimistä 
 summa | 25
