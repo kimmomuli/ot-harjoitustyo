@@ -6,7 +6,7 @@ Sovelluksen tarkotus on kerätä mahdollisimman paljon pisteitä. Pelissä tippu
 - [x] Palanen jää siihen kohtaa mihin se ensimmäisenä koskettaa
 - [x] Paloja voi siirrellä vasemmalla ja oikealle
 - [x] Paloja voi käännellä
-- [ ] Pisteet lisäntyy täytetyistä riveistä
+- [x] Pisteet lisäntyy täytetyistä riveistä
 - [x] Mikäli palanen on ylärivillä peli loppuu
 
 Ohjelman voi suorittaa komennoilla 
