@@ -1,15 +1,17 @@
 package tetris.logics;
 
 import javafx.scene.shape.Rectangle;
+import javafx.scene.layout.Pane;
 
 public class TetrisMoves {
-    public final static boolean moveDown(Tetromino t, int[][] grid){
+    public final static boolean moveDown(Tetromino t, int[][] grid, Pane screen){
         if (inArea(t) && canMoveDown(t, grid)) {
             moveDown(t);
-            return true;
+            return false;
         }
         savePlace(t, grid);
-        return false;
+        TetrisCheck.removeRows(grid, screen);
+        return true;
     }
     
     public static void moveDown(Tetromino t){

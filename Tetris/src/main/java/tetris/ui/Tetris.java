@@ -19,13 +19,14 @@ import javafx.stage.Stage;
 public class Tetris extends Application {
     
     public static Tetromino tetromino;
+    public static int pointsNumber;
     
     @Override
     public void start(Stage primaryStage) {
         Pane screen = new Pane();
         screen.setPrefSize(500, 650);
         
-        Text points = new Text(30, 30, "Points: ");
+        Text points = new Text(30, 30, "Points: " + String.valueOf(pointsNumber));
         points.setFill(Color.RED);
         points.setStyle("-fx-font-size: 2em;");
         screen.getChildren().add(points);
@@ -47,13 +48,16 @@ public class Tetris extends Application {
             public void run() {
                 Platform.runLater(() -> {
                     if (TetrisCheck.gameOver(grid)) {
-                        if (!TetrisMoves.moveDown(tetromino, grid)) {
+                        points.setText("Points: " + String.valueOf(pointsNumber));
+                        
+                        printGrid(screen);
+                        if (TetrisMoves.moveDown(tetromino, grid, screen)) {
                             tetromino = TetrominoFactory.createRandomTetromino(TetrominoFactory.randomNumber());
                             screen.getChildren().addAll(tetromino.piece1, tetromino.piece2, tetromino.piece3, tetromino.piece4);
+                            printGrid(screen);
                         }
-                        
                         scene.setOnKeyPressed(event ->{
-                            if (event.getCode() == KeyCode.DOWN) ; 
+                            if (event.getCode() == KeyCode.DOWN) ;
                             if (event.getCode() == KeyCode.LEFT) TetrisMoves.moveLeft(tetromino, grid);
                             if (event.getCode() == KeyCode.RIGHT) TetrisMoves.moveRight(tetromino, grid);
                             if (event.getCode() == KeyCode.UP) TetrisMoves.rotate(tetromino, grid);
