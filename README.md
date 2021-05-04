@@ -19,6 +19,28 @@ cd Tetris
 ```
 mvn compile exec:java -Dexec.mainClass=tetris.Main
 ```
+## Testaus
+Testit suoritetaan komennolla
 
+```
+mvn test
+```
+
+Testikattavuusraportti luodaan komennolla
+
+```
+mvn jacoco:report
+```
+
+Voit generoida jarin komennolla
+
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
+
+Javadoc generointi
+```
+mvn javadoc:javadoc
+```
  - [työaikakirjanpito](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/ty%C3%B6aikakirjanpito.md)
  - [arkkitehtuuri](https://github.com/kimmomuli/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
