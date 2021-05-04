@@ -39,7 +39,7 @@ public class TetrisMoves {
         grid[xCoordinate(t.piece1)][yCoordinate(t.piece1)] = 1;
         grid[xCoordinate(t.piece2)][yCoordinate(t.piece2)] = 1;
         grid[xCoordinate(t.piece3)][yCoordinate(t.piece3)] = 1;
-        grid[xCoordinate(t.piece4)][yCoordinate(t.piece4)] = 1;                         
+        grid[xCoordinate(t.piece4)][yCoordinate(t.piece4)] = 1;
     }
     
     public static int xCoordinate(Rectangle piece) {
@@ -151,13 +151,11 @@ public class TetrisMoves {
     }
     
     public static boolean canRotateITo3(Tetromino t, int[][] grid) {
-        int xHelp = xCoordinate(t.piece1);
-        int yHelp = yCoordinate(t.piece1);
         return (t.piece1.getX() > 100 && 
                 t.piece1.getX() < 340 &&
-                grid[xHelp - 1][yHelp] == 0 &&
-                grid[xHelp + 1][yHelp] == 0 &&
-                grid[xHelp + 2][yHelp] == 0);
+                grid[xCoordinate(t.piece1) - 1][yCoordinate(t.piece1)] == 0 &&
+                grid[xCoordinate(t.piece1) + 1][yCoordinate(t.piece1)] == 0 &&
+                grid[xCoordinate(t.piece1) + 2][yCoordinate(t.piece1)] == 0);
     }
     
     public static void rotatePieceS(Tetromino t, int[][] grid) {
@@ -229,7 +227,7 @@ public class TetrisMoves {
             if (canRotateLto4(t, grid)) {
                 rotateLto4(t);
             }
-        } else if (t.position == 4) {
+        } else {
             if (canRotateLto1(t, grid)) {
                 rotateLto1(t);
             }
@@ -313,7 +311,7 @@ public class TetrisMoves {
             if (canRotateJto4(t, grid)) {
                 rotateJto4(t);
             }
-        } else if (t.position == 4) {
+        } else {
             if (canRotateJto1(t, grid)) {
                 rotateJto1(t);
             }
@@ -397,7 +395,7 @@ public class TetrisMoves {
             if (canRotateTo4(t, grid)) {
                 rotateTto4(t);
             }
-        } else if (t.position == 4) {
+        } else {
             if (canRotateTo1(t, grid)) {
                 rotateTto1(t);
             }
