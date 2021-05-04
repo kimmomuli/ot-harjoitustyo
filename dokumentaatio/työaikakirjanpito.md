@@ -10,4 +10,5 @@ Päivä | Tehdyt tunnit | Mitä tein
 3.5 | 8 | Rivienpoisto + käyttöliittymä
 3.5 | 1 | Koodin siistimistä 
 4.5 | 6 | Testien tekoa
-summa | 32
+5.5 | 3 | Javadoc
+summa | 35
