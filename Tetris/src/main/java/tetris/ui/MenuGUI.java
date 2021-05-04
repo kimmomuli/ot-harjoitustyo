@@ -9,8 +9,16 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.shape.Line;
 
+/**
+ * GUI Menu
+ * @author kimmo
+ */
 public class MenuGUI {
     
+    /**
+     * Create GUI which is Menu
+     * @param primaryStage Stage, which is get from Tetris class
+     */
     public static void startMenu(Stage primaryStage) {
         Pane screen = new Pane();
         addTetrisHeader(screen);
@@ -33,6 +41,10 @@ public class MenuGUI {
         });
     } 
     
+    /**
+     * Create quit button
+     * @return quit button
+     */
     public static Button createQuitButton() {
         Button quitButton = new Button();
         quitButton.setLayoutX(40);
@@ -42,6 +54,10 @@ public class MenuGUI {
         return quitButton;
     }
     
+    /**
+     * Create start button
+     * @return start button
+     */
     public static Button createStartButton() {
         Button startBtn = new Button();
         startBtn.setText("START");
@@ -51,6 +67,10 @@ public class MenuGUI {
         return startBtn;
     }
     
+    /**
+     * Add big text header and set size 500 x 650 and draw two lines
+     * @param screen
+     */
     public static void addTetrisHeader(Pane screen) {
         screen.setPrefSize(500, 650);
         screen.setStyle("-fx-background-color: grey;");
@@ -62,6 +82,10 @@ public class MenuGUI {
         screen.getChildren().add(new Line(0, 245, 500, 245));
     }
     
+    /**
+     * Add text how to get points and add one more line
+     * @param screen 
+     */
     public static void addGuideText(Pane screen) {
         Text guideText1 = new Text(180, 290, "Points");
         guideText1.setStyle("-fx-font-size: 4em;");
@@ -78,6 +102,10 @@ public class MenuGUI {
         screen.getChildren().add(new Line(0, 420, 500, 420));
     }
     
+    /**
+     * Add how to move tetromino in tetris
+     * @param screen
+     */
     public static void addGuideKeys(Pane screen) {
         Text guideText1 = new Text(185, 465, "Keys");
         guideText1.setStyle("-fx-font-size: 4em;");

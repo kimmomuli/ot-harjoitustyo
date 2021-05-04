@@ -15,10 +15,28 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Game GUI
+ * @author kimmo
+ */
 public class GameGUI {
+
+    /**
+     * Tetromino which is going down
+     */
     public static Tetromino tetromino;
+
+    /**
+     * Points
+     */
     public static int pointsNumber;
     
+    /**
+     * Create GUI Tetris and add all game components. Start timertask and game start
+     * @param primaryStage
+     * @param screen
+     * @param scene
+     */
     public static void startTetris(Stage primaryStage, Pane screen, Scene scene) {
         screen.setStyle("-fx-background-color: grey;");
         
@@ -71,6 +89,10 @@ public class GameGUI {
         timer.schedule(timertask, 0, 300);
     }
     
+    /**
+     * Print grid on screen
+     * @param screen
+     */
     public static void printGrid(Pane screen) {
         int x = 100;
         for (int i = 0; i < 11; i++) {

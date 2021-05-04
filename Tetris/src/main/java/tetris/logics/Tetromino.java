@@ -3,15 +3,50 @@ package tetris.logics;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 
+/**
+ *
+ * @author kimmo
+ */
 public class Tetromino {
     
+    /**
+     * One of four rectangle
+     */
     public Rectangle piece1;
+
+    /**
+     * One of four rectangle
+     */
     public Rectangle piece2;
+
+    /**
+     * One of four rectangle
+     */
     public Rectangle piece3;
+
+    /**
+     * One of four rectangle
+     */
     public Rectangle piece4;
+
+    /**
+     * Tetrominos name
+     */
     public String name;
+
+    /**
+     * Tetrominos position
+     */
     public int position;
 
+    /**
+     * Create 4 rectangle, name and paint them and give position to tetromino 
+     * @param piece1
+     * @param piece2
+     * @param piece3
+     * @param piece4
+     * @param name
+     */
     public Tetromino(Rectangle piece1, Rectangle piece2, Rectangle piece3, Rectangle piece4, String name) {
         this.piece1 = piece1;
         this.piece2 = piece2;
@@ -22,6 +57,10 @@ public class Tetromino {
         this.position = 1;
     }
     
+    /**
+     * Choice a color by name
+     * @param name
+     */
     public void paint(String name) {
         if (name.equals("0")) { 
             setColor(Color.YELLOW); 
@@ -40,6 +79,10 @@ public class Tetromino {
         }
     }
     
+    /**
+     * Fill rectangles with color
+     * @param color 
+     */
     public void setColor(Color color) {
         piece1.setFill(color);
         piece2.setFill(color);
@@ -47,6 +90,10 @@ public class Tetromino {
         piece4.setFill(color);
     }
     
+    /**
+     * change tetrominoes position
+     * the position is in variable position
+     */
     public void changePostion() {
         position++;
         if (position == 5) {
